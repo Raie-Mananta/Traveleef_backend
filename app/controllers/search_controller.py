@@ -8,7 +8,10 @@ def search():
     departure_id = request.json.get('departure_id')
     arrival_id = request.json.get('arrival_id')
     outbound_date = request.json.get('outbound_date')
-    return_date = request.json.get('return_date') 
+    return_date = request.json.get('return_date')
+    adults = request.json.get('adults')
+    children = request.json.get('children')
+    emissions = request.json.get('emissions')
 
     
     API_KEY = "3394251b499b0eb233be82862c94da861aec52cce9bc05a2b94411e7a2252dc8"
@@ -21,6 +24,9 @@ def search():
         "arrival_id": arrival_id,
         "outbound_date": outbound_date,
         "return_date": return_date,
+        "adults": adults,
+        "children": children,
+        "emissions": emissions,
         "api_key": API_KEY
     }
 
