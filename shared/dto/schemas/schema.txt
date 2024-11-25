@@ -1,0 +1,1 @@
+décrit les formats JSON pour valider les entrées avec des bibliothèques comme marshmallow ou pydantic

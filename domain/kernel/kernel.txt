@@ -1,0 +1,1 @@
+contient les éléments centraux et réutilisables du domaine (exceptions personnalisées, événements de domaine, ...)
