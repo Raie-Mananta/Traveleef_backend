@@ -1,10 +1,5 @@
-from flask import Flask, request , jsonify
+from flask import Flask
 
-app = Flask(__name__)
-
-@app.route('/', methods = ['GET', 'POST']) 
-def home(): 
-    if(request.method == 'GET'): 
-  
-        data = "hello world"
-        return jsonify({'data': data}) 
+def create_app():
+    app = Flask(__name__)
+    return app
