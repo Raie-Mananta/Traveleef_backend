@@ -23,33 +23,6 @@ def search():
     children = request.json.get('children')
     emissions = request.json.get('emissions')
 
-    
-
-
-    
-    api_url = "https://serpapi.com/search"
-    params = {
-        "engine": "google_flights",
-        "departure_id": departure_id,
-        "arrival_id": arrival_id,
-        "outbound_date": outbound_date,
-        "return_date": return_date,
-        "adults": adults,
-        "children": children,
-        "api_key": API_KEY
-    }
-
-    try:
-        response = requests.get(api_url, params=params)
-        response.raise_for_status() 
-        data = response.json()
-
-        return jsonify(data)
-    except requests.exceptions.RequestException as e:
-        return jsonify({"error": str(e)}), 500
-
-@search_bp.route('/search/ecology', methods=['POST'])
-def ecology():
     api_url = "https://serpapi.com/search"
     params = {
         "engine": "google_flights",
