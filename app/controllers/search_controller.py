@@ -13,7 +13,7 @@ emissions = None
 
 API_KEY = "3394251b499b0eb233be82862c94da861aec52cce9bc05a2b94411e7a2252dc8"
 
-@search_bp.route('/search', methods=['POST'])
+@search_bp.route('/search', methods=['GET'])
 def search():
     departure_id = request.json.get('departure_id')
     arrival_id = request.json.get('arrival_id')
