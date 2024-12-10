@@ -19,7 +19,8 @@ CREATE TABLE utilisateur (
 -- Création de la table voyage
 CREATE TABLE voyage (
     idVoyage SERIAL,
-    destination VARCHAR(100) NOT NULL,
+    depart VARCHAR(100) NOT NULL,
+    arrivee VARCHAR(100) NOT NULL,
     date_depart DATE NOT NULL,
     date_retour DATE NOT NULL,
     prix NUMERIC NOT NULL,
