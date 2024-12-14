@@ -74,3 +74,36 @@ def ecology():
         return jsonify(data)
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
+
+
+@search_bp.route('/search', methods=['POST'])
+def search_forms():
+    departure_id = request.json.get('departure_id')
+    arrival_id = request.json.get('arrival_id')
+    outbound_date = request.json.get('outbound_date')
+    return_date = request.json.get('return_date')
+    adults = request.json.get('adults')
+    children = request.json.get('children')
+
+    api_url = "https://serpapi.com/search"
+    params = {
+        "engine": "google_flights",
+        "departure_id": departure_id,
+        "arrival_id": arrival_id,
+        "outbound_date": outbound_date,
+        "return_date": return_date,
+        "adults": adults,
+        "children": children,
+        "api_key": API_KEY
+    }
+    try:
+        # Envoyer une requête GET à l'API externe
+        response = requests.get(api_url, params=params)
+        response.raise_for_status()
+        data = response.json()
+
+        # Retourner la réponse au frontend Angular
+        return jsonify(data)
+    except requests.exceptions.RequestException as e:
+        # Gérer les erreurs de requête
+        return jsonify({"error": str(e)}), 500
